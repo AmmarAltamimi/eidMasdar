@@ -73,7 +73,7 @@ export function Section() {
     eid1, eid2, eid3, eid4, eid5, eid6,
     eid7, eid8, eid9, eid10, eid11, eid12,
     eid13, eid14, eid15, eid16, eid17, eid18,
-    eid19, eid20, eid21, eid22,
+    eid19, eid20, eid22,
   ];
   
 
@@ -140,20 +140,6 @@ export function Section() {
         >
           {t("step1")}
         </motion.p>
-        {/* <div className="flex flex-wrap gap-4 mb-4 justify-center">
-  {images.map((src, index) => (
-    <motion.div
-      key={index}
-      initial={{ opacity: 0, x: 100 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      transition={{ duration: 1 }}
-      onClick={() => handleImageSelect(index)}
-      className={`w-1/2 md:w-1/3 lg:w-1/4 relative cursor-pointer border-4 rounded-lg overflow-hidden 
-    >
-      <Image src={src} alt={`Image ${index + 1}`} width={300} height={300} className="object-cover w-full" />
-    </motion.div>
-  ))}
-</div> */}
 
 
 <div className="flex flex-wrap gap-2 sm:gap-4 mb-4 justify-center">
@@ -249,20 +235,22 @@ export function Section() {
           {(onClose) => (
             <>
               <ModalHeader>{t("modal_title")}</ModalHeader>
-              <ModalBody>
+              <ModalBody >
                 {selectedImage !== null && (
-                  <div className="relative">
+                  <div className="relative ">
+                    <div className="">
                     <Image
                       src={images[selectedImage]}
                       alt="Selected Image"
                       width={300}
                       height={300}
-                      className="w-full"
+                      className="w-full "
                     />
+                    </div>
+   
                     <div
-                      className="absolute left-1/2 transform -translate-x-1/2 translate-y-[105%] text-white font-bold text-2xl"
+                      className=" absolute left-1/2 transform -translate-x-1/2 bottom-[32%]  text-white font-bold text-2xl"
                       style={{
-                        bottom: "160px",
                         textShadow: "2px 2px 4px rgba(0, 0, 0, 0.8)",
                       }}
                     >
