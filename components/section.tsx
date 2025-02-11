@@ -44,11 +44,12 @@ export function Section() {
   }, []);
 
   const images: string[] = [
-    "/eid1.png", "/eid2.png", "/eid3.png", "/eid4.png", "/eid5.png", "/eid6.png",
-    "/eid7.png", "/eid8.png", "/eid9.png", "/eid10.png", "/eid11.png", "/eid12.png",
-    "/eid13.png", "/eid14.png", "/eid15.png", "/eid16.png", "/eid17.png", "/eid18.png",
-    "/eid19.png", "/eid20.png", "/eid21.png", "/eid22.png"
+    "/images/eid1.png", "/images/eid2.png", "/images/eid3.png", "/images/eid4.png", "/images/eid5.png", "/images/eid6.png",
+    "/images/eid7.png", "/images/eid8.png", "/images/eid9.png", "/images/eid10.png", "/images/eid11.png", "/images/eid12.png",
+    "/images/eid13.png", "/images/eid14.png", "/images/eid15.png", "/images/eid16.png", "/images/eid17.png", "/images/eid18.png",
+    "/images/eid19.png", "/images/eid20.png", "/images/eid21.png", "/images/eid22.png"
   ];
+  
 
   const handleImageSelect = (index: number) => {
     setSelectedImage(index);
