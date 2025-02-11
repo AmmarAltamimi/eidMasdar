@@ -140,22 +140,29 @@ export function Section() {
         >
           {t("step1")}
         </motion.p>
-        <div className="grid grid-cols-4 gap-4 mb-4">
-          {images.map((src, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, x: 100 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 1 }}
-              onClick={() => handleImageSelect(index)}
-              className={`relative cursor-pointer border-4 rounded-lg overflow-hidden ${
-                selectedImage === index ? "border-[#ef3735] dark:border-blue-400" : "border-transparent"
-              }`}
-            >
-              <Image src={src} alt={`Image ${index + 1}`} width={300} height={300} className="object-cover w-full" />
-            </motion.div>
-          ))}
-        </div>
+        <div className="flex flex-wrap gap-2 sm:gap-4 mb-4 justify-center">
+  {images.map((src, index) => (
+    <motion.div
+      key={index}
+      initial={{ opacity: 0, x: 100 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      transition={{ duration: 1 }}
+      onClick={() => handleImageSelect(index)}
+      // هنا استخدمنا قيم عرض محسوبة لتعويض الفجوة:
+      className="relative cursor-pointer border-4 rounded-lg overflow-hidden
+                 w-[calc(50%-0.5rem)] sm:w-[calc(50%-1rem)]
+                 md:w-[calc(33.33%-1rem)] lg:w-[calc(25%-1.5rem)]"
+    >
+      <Image
+        src={src}
+        alt={`Image ${index + 1}`}
+        width={300}
+        height={300}
+        className="object-cover w-full"
+      />
+    </motion.div>
+  ))}
+</div>
       </div>
 
       <div className="mt-8">
