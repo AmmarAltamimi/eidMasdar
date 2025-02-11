@@ -22,6 +22,7 @@ import eid19 from "../public/images/eid19.png";
 import eid20 from "../public/images/eid20.png";
 import eid21 from "../public/images/eid21.png";
 import eid22 from "../public/images/eid22.png";
+import { StaticImageData } from "next/image";
 
 
 
@@ -68,7 +69,7 @@ export function Section() {
     fetchDownloadCount();
   }, []);
 
-  const images: string[] = [
+  const images: StaticImageData[] = [
     eid1, eid2, eid3, eid4, eid5, eid6,
     eid7, eid8, eid9, eid10, eid11, eid12,
     eid13, eid14, eid15, eid16, eid17, eid18,
