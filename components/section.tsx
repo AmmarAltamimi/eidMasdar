@@ -104,7 +104,7 @@ export function Section() {
     }
     const canvas = document.createElement("canvas");
     const img = new window.Image();
-    img.src = images[selectedImage];
+    img.src = images[selectedImage].src;
     img.onload = async () => {
       const context = canvas.getContext("2d");
       if (!context) return;
