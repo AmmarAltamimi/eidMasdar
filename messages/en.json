@@ -1,0 +1,87 @@
+{
+
+  "Layout" : {
+    "title": "Eid Greetings - Masdar",
+    "template": "%s - Eid Greetings from Masdar",
+    "description": "Masdar Greetings offers an innovative platform to send the most beautiful Eid greetings and well-wishes via custom greeting cards. Discover unique Eid designs and inspiring messages such as Eid greetings, Eid wishes, Happy Eid, and custom greeting card designs that help improve your website's visibility on search engines."
+  },
+  
+    "NavbarUi": {
+      "home": "Home",
+      "about": "About Masdar",
+      "services": "Services",
+      "store": "E-Store",
+      "notifications": "Notifications",
+      "profile": "Profile",
+      "dashboard": "Dashboard",
+      "activity": "Activity",
+      "analytics": "Analytics",
+      "system": "System",
+      "deployments": "Deployments",
+      "mySettings": "My Settings",
+      "teamSettings": "Team Settings",
+      "help": "Help & Feedback",
+      "logout": "Log Out",
+      "changeLanguage": "Change Language"
+    },
+"Hero": {
+          "title": "Celebrate Eid with Unique Greeting Cards! 🎉🌙",
+          "description1": "offers you ",
+          "description2": "a great service to create greeting and congratulation cards for Eid, making this occasion more special and joyful with your loved ones.✨",
+          "companyName": "Masdar Company",
+          "feature1": "Design your card in seconds! Choose a design, add your name, and get a unique card.",
+          "feature2": "Easily share the joy! Download your card or share it with friends and family via social media.",
+          "whyChooseUs": "💡 Why choose our cards?",
+          "details": "We offer you a unique and distinctive experience in designing greeting and congratulation cards, ensuring that our cards combine elegance, simplicity, and uniqueness. Now, you can enjoy stylish and modern designs that suit all tastes and occasions. Our designs are not only attractive but are carefully crafted to leave a special and memorable impression on your loved ones."
+        },
+    
+        "section": {
+          "step1": "Choose your greeting card",
+          "step2": "Enter your name",
+          "step3": "Preview and download",
+          "enter_name": "Enter your name",
+          "view_image": "View Image",
+          "download_image": "Download Image",
+          "card": "The number of printed cards is",
+          "error_select_card": "Please select a greeting card",
+          "error_enter_name": "Please enter your name",
+          "success_download": "Image downloaded successfully",
+          "modal_title": "Image Preview",
+          "close": "Close"
+        },
+        "Contact": {
+            "successMessage": "Your message has been sent successfully",
+            "newsletterTitle": "Subscribe to the Newsletter",
+            "newsletterSubtitle": "Get the latest updates from us",
+            "emailPlaceholder": "Enter your email",
+            "subscribing": "Subscribing...",
+            "subscribeNow": "Subscribe Now"
+          },
+          "Footer": {
+          "companyDescription": "The leading company in trading and distributing all types of construction and building materials in the Kingdom of Saudi Arabia.",
+          "contactPrompt": "For any inquiry or assistance, you can contact us via:",
+          "quickLinks": "Quick Links",
+          "companyEmail": "Company Email",
+          "boardMembers": "Board Members",
+          "certifications": "Certifications",
+          "branchLocations": "Branch Locations",
+          "disabilityServices": "Services for People with Disabilities",
+          "ourPartners": "Our Partners",
+          "contactUsLink": "Contact Us",
+          "relatedLinks": "Related Links",
+          "aboutMasdar": "About Masdar",
+          "visionMission": "Vision & Mission",
+          "ourHistory": "Our History",
+          "ourServices": "Our Services",
+          "products": "Products",
+          "joinUs": "Join Us",
+          "contactUsTitle": "Contact Us",
+          "headOfficeAddress1": "Head Office - Riyadh, Thamama Road 537",
+          "headOfficeAddress2": "Al-Munsiyah, East, Building No. 3461",
+          "headOfficeAddress3": "P.O. Box 40444",
+          "headOfficeAddress4": "Riyadh 11499"
+        }
+      }
+      
+  
+
