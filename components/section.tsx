@@ -1,5 +1,31 @@
 // Section.tsx
 "use client";
+import eid1 from "../public/images/eid1.png";
+import eid2 from "../public/images/eid2.png";
+import eid3 from "../public/images/eid3.png";
+import eid4 from "../public/images/eid4.png";
+import eid5 from "../public/images/eid5.png";
+import eid6 from "../public/images/eid6.png";
+import eid7 from "../public/images/eid7.png";
+import eid8 from "../public/images/eid8.png";
+import eid9 from "../public/images/eid9.png";
+import eid10 from "../public/images/eid10.png";
+import eid11 from "../public/images/eid11.png";
+import eid12 from "../public/images/eid12.png";
+import eid13 from "../public/images/eid13.png";
+import eid14 from "../public/images/eid14.png";
+import eid15 from "../public/images/eid15.png";
+import eid16 from "../public/images/eid16.png";
+import eid17 from "../public/images/eid17.png";
+import eid18 from "../public/images/eid18.png";
+import eid19 from "../public/images/eid19.png";
+import eid20 from "../public/images/eid20.png";
+import eid21 from "../public/images/eid21.png";
+import eid22 from "../public/images/eid22.png";
+
+
+
+
 import React, { useState, useEffect } from "react";
 import {
   Button,
@@ -20,7 +46,6 @@ import { CiCreditCard1 } from "react-icons/ci";
 import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { useTheme } from "next-themes";
-
 export function Section() {
   const t = useTranslations("section");
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
@@ -44,10 +69,10 @@ export function Section() {
   }, []);
 
   const images: string[] = [
-    "/images/eid1.png", "/images/eid2.png", "/images/eid3.png", "/images/eid4.png", "/images/eid5.png", "/images/eid6.png",
-    "/images/eid7.png", "/images/eid8.png", "/images/eid9.png", "/images/eid10.png", "/images/eid11.png", "/images/eid12.png",
-    "/images/eid13.png", "/images/eid14.png", "/images/eid15.png", "/images/eid16.png", "/images/eid17.png", "/images/eid18.png",
-    "/images/eid19.png", "/images/eid20.png", "/images/eid21.png", "/images/eid22.png"
+    eid1, eid2, eid3, eid4, eid5, eid6,
+    eid7, eid8, eid9, eid10, eid11, eid12,
+    eid13, eid14, eid15, eid16, eid17, eid18,
+    eid19, eid20, eid21, eid22,
   ];
   
 

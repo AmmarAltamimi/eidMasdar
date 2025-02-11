@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   },
   description:
     "يقدم موقع مصدر للتهاني منصة مبتكرة لإرسال أجمل تهاني ومعايدات العيد عبر بطاقات تهنئة مخصصة. اكتشف تصميمات العيد الفريدة والرسائل الملهمة مثل تهنئة العيد، معايدات العيد، عيد سعيد، وتصميم بطاقة تهنئة مخصصة تضمن تحسين ظهور موقعك في محركات البحث.",
-  icons: { icon: "/favicon.ico" },
+  icons: { icon: "/images/favicon.ico" },
 };
 
 export const viewport: Viewport = {
