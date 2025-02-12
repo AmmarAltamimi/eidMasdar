@@ -155,14 +155,6 @@ export const Footer = () => {
               <MdOutlineKeyboardDoubleArrowRight className="text-[#ef3735] dark:text-blue-500 text-[20px]" /> <span>{t("branchLocations")}</span>
             </Link>
           </motion.li>
-          <motion.li variants={ChlidrenLink1Variants} className="border-b border-neutral-900 pb-2">
-            <Link
-              href="https://masdar.co/ar/%d8%a7%d9%84%d8%aa%d8%b9%d8%a7%d9%85%d9%84-%d9%85%d8%b9-%d8%b0%d9%88%d9%8a-%d8%a7%d9%84%d8%a5%d8%b9%d8%a7%d9%82%d8%a9/"
-              className="text-gray-300 hover:text-gray-400 hover:translate-x-3 transition duration-300 flex items-center"
-            >
-              <MdOutlineKeyboardDoubleArrowRight className="text-[#ef3735] dark:text-blue-500 text-[20px]" /> <span>{t("disabilityServices")}</span>
-            </Link>
-          </motion.li>
           <motion.li variants={ChlidrenLink2Variants} className="border-b border-neutral-900 pb-2">
             <Link
               href="https://masdar.co/ar/our-partners/"
@@ -231,14 +223,6 @@ export const Footer = () => {
               className="text-gray-300 hover:text-gray-400 hover:translate-x-3 transition duration-300 flex items-center"
             >
               <MdOutlineKeyboardDoubleArrowRight className="text-[#ef3735] dark:text-blue-500 text-[20px]" /> <span>{t("products")}</span>
-            </Link>
-          </motion.li>
-          <motion.li variants={ChlidrenLink2Variants} className="border-b border-neutral-900 pb-2">
-            <Link
-              href="https://masdar.co/ar/join-us/"
-              className="text-gray-300 hover:text-gray-400 hover:translate-x-3 transition duration-300 flex items-center"
-            >
-              <MdOutlineKeyboardDoubleArrowRight className="text-[#ef3735] dark:text-blue-500 text-[20px]" /> <span>{t("joinUs")}</span>
             </Link>
           </motion.li>
         </motion.ul>

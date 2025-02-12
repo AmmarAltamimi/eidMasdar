@@ -10,10 +10,7 @@ module.exports = {
   ],
   theme: {
     extend: {
-      fontFamily: {
-        arabic: ["var(--font-arabic)", "sans-serif"],
-        english: ["var(--font-english)", "sans-serif"],
-      },
+
     },
   },
   darkMode: "class",
