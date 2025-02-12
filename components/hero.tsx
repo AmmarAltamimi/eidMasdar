@@ -33,6 +33,19 @@ export function Hero() {
     visible: { opacity: 1, transition: { duration: 1 } },
   };
 
+  const letter = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      transition: { 
+        duration: 0.2,  // مدة التحريك لكل حرف
+        ease: "easeOut" // جعل التحريك سلسًا
+      } 
+    },
+  };
+  
+
   return (
     <section className=" border-b border-gray-600 dark:border-b dark:border-gray-600 
      mt-12">
@@ -78,7 +91,7 @@ export function Hero() {
             >
               {t("whyChooseUs")}
             </motion.h3>
-            <motion.p
+            {/* <motion.p
               variants={Child3Variants}
               className="mt-4 space-y-2 text-gray-700 dark:text-gray-300"
             >
@@ -89,7 +102,23 @@ export function Hero() {
                     {letter}
                   </motion.span>
                 ))}
-            </motion.p>
+            </motion.p> */}
+    <motion.p
+  initial="hidden"
+  animate="visible"
+  variants={{
+    visible: { transition: { staggerChildren: 0.05 } }, // تقليل التأخير بين الحروف
+  }}
+  className="mt-4 space-y-2 text-gray-700 dark:text-gray-300"
+>
+  {t("details")
+    .split("")
+    .map((char, index) => (
+      <motion.span key={char + "-" + index} variants={letter}>
+        {char}
+      </motion.span>
+    ))}
+</motion.p>
           </motion.div>
 
           {/* الصورة */}
