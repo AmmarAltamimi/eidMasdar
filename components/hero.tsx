@@ -32,9 +32,8 @@ export function Hero() {
 
 
   return (
-    <section className=" border-b border-gray-600 dark:border-b dark:border-gray-600 
-     mt-12">
-      <div className="container mx-auto px-6">
+    <section className=" border-b border-gray-600 dark:border-b dark:border-gray-600 ">
+      <div className="container mx-auto px-6 mb-[50px]">
         <div className="flex flex-col-reverse lg:flex-row items-center gap-10 lg:gap-16">
           {/* المحتوى النصي */}
           <motion.div

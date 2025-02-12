@@ -127,7 +127,7 @@ export function Section() {
   };
 
   return (
-    <div className="text-center border-b border-gray-600  dark:border-b dark:border-gray-600 mt-8 space-y-8 p-4">
+    <div className="text-center border-b border-gray-600  dark:border-b dark:border-gray-600 mt-8 space-y-8 p-[40px] ">
       <div>
         <div className="w-[100px] h-[100px] text-3xl flex justify-center items-center rounded-full text-white bg-[#ef3735] dark:bg-blue-600 mx-auto">
           1
@@ -218,7 +218,7 @@ export function Section() {
           {t("download_image")}
         </Button>
       </div>
-      <div className="flex items-center justify-center gap-2 mb-13">
+      <div className="flex items-center justify-center gap-2 ">
         <CiCreditCard1 size={24} />
         <motion.p
           initial={{ opacity: 0, x: -100 }}
