@@ -1,9 +1,7 @@
 "use client";
 import Lottie from "lottie-react";
-import eidBlue from "../public/lottie/AnimationBlue.json";
-import eidRed from "../public/lottie/AnimationRed.json";
-import eid1Blue from "../public/lottie/Animation1Blue.json";
-import eid1Red from "../public/lottie/Animation1Red.json";
+import eidAr from "../public/lottie/AnimationAr.json";
+import eidEn from "../public/lottie/AnimationEn.json";
 import { motion } from "framer-motion";
 import { useLocale, useTranslations } from "next-intl";
 import { useTheme } from "next-themes";
@@ -35,7 +33,6 @@ export function Hero() {
     <section className=" border-b border-gray-600 dark:border-b dark:border-gray-600 ">
       <div className="container mx-auto px-6 mb-[50px]">
         <div className="flex flex-col-reverse lg:flex-row items-center gap-10 lg:gap-16">
-          {/* المحتوى النصي */}
           <motion.div
             variants={grandVariants}
             initial="hidden"
@@ -54,7 +51,7 @@ export function Hero() {
               className="mt-6 text-lg leading-relaxed text-gray-700 dark:text-gray-300"
             >
               {t("description1")}{" "}
-              <span className="font-semibold text-[#ef3735] dark:text-blue-400">
+              <span className="font-semibold text-[#00457c] dark:text-blue-400">
                 {t("companyName")}
               </span>{" "}
               {t("description2")}
@@ -71,7 +68,7 @@ export function Hero() {
 
             <motion.h3
               variants={Child3Variants}
-              className="mt-8 text-xl font-semibold text-[#ef3735] dark:text-blue-400"
+              className="mt-8 text-xl font-semibold text-[#00457c] dark:text-blue-400"
             >
               {t("whyChooseUs")}
             </motion.h3>
@@ -83,13 +80,8 @@ export function Hero() {
 </motion.p>
           </motion.div>
 
-          {/* الصورة */}
           <div className="lg:w-1/2">
-            {locale === "en" ? (
-              theme === "dark" ? <Lottie animationData={eid1Blue} className="w-full mx-auto" /> : <Lottie animationData={eid1Red} className="w-full mx-auto" />
-            ) : (
-              theme === "dark" ? <Lottie animationData={eidBlue} className="w-full mx-auto" /> : <Lottie animationData={eidRed} className="w-full mx-auto" />
-            )}
+            {locale === "en" ? <Lottie animationData={eidEn} className="w-full mx-auto" /> : <Lottie animationData={eidAr} className="w-full mx-auto" />}
           </div>
         </div>
       </div>

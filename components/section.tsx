@@ -1,32 +1,5 @@
 // Section.tsx
 "use client";
-import eid1 from "../public/images/eid1.png";
-import eid2 from "../public/images/eid2.png";
-import eid3 from "../public/images/eid3.png";
-import eid4 from "../public/images/eid4.png";
-import eid5 from "../public/images/eid5.png";
-import eid6 from "../public/images/eid6.png";
-import eid7 from "../public/images/eid7.png";
-import eid8 from "../public/images/eid8.png";
-import eid9 from "../public/images/eid9.png";
-import eid10 from "../public/images/eid10.png";
-import eid11 from "../public/images/eid11.png";
-import eid12 from "../public/images/eid12.png";
-import eid13 from "../public/images/eid13.png";
-import eid14 from "../public/images/eid14.png";
-import eid15 from "../public/images/eid15.png";
-import eid16 from "../public/images/eid16.png";
-import eid17 from "../public/images/eid17.png";
-import eid18 from "../public/images/eid18.png";
-import eid19 from "../public/images/eid19.png";
-import eid20 from "../public/images/eid20.png";
-import eid21 from "../public/images/eid21.png";
-import eid22 from "../public/images/eid22.png";
-import { StaticImageData } from "next/image";
-
-
-
-
 import React, { useState, useEffect } from "react";
 import {
   Button,
@@ -47,9 +20,10 @@ import { CiCreditCard1 } from "react-icons/ci";
 import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { useTheme } from "next-themes";
+import eid from "../public/images/card.png";
+
 export function Section() {
   const t = useTranslations("section");
-  const [selectedImage, setSelectedImage] = useState<number | null>(null);
   const [name, setName] = useState<string>("");
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const [downloadCount, setDownloadCount] = useState<number>();
@@ -69,23 +43,10 @@ export function Section() {
     fetchDownloadCount();
   }, []);
 
-  const images: StaticImageData[] = [
-    eid1, eid2, eid3, eid4, eid5, eid6,
-    eid7, eid8, eid9, eid10, eid11, eid12,
-    eid13, eid14, eid15, eid16, eid17, eid18,
-    eid19, eid20, eid22,
-  ];
-  
 
-  const handleImageSelect = (index: number) => {
-    setSelectedImage(index);
-  };
+
 
   const openModel = () => {
-    if (selectedImage === null) {
-      toast.error(t("error_select_card"));
-      return;
-    }
     if (!name) {
       toast.error(t("error_enter_name"));
       return;
@@ -94,17 +55,13 @@ export function Section() {
   };
 
   const handleDownload = async () => {
-    if (selectedImage === null) {
-      toast.error(t("error_select_card"));
-      return;
-    }
     if (!name) {
       toast.error(t("error_enter_name"));
       return;
     }
     const canvas = document.createElement("canvas");
     const img = new window.Image();
-    img.src = images[selectedImage].src;
+    img.src = eid.src;
     img.onload = async () => {
       const context = canvas.getContext("2d");
       if (!context) return;
@@ -114,9 +71,9 @@ export function Section() {
       context.font = "bold 40px Arial";
       context.fillStyle = "white";
       context.textAlign = "center";
-      context.fillText(name, canvas.width / 2, canvas.height - 160);
+      context.fillText(name, canvas.width / 2 + 80, canvas.height - 200);
       const link = document.createElement("a");
-      link.download = "eid-mubarak.png";
+      link.download = "masdar.png";
       link.href = canvas.toDataURL();
       link.click();
       toast.success(t("success_download"));
@@ -127,51 +84,10 @@ export function Section() {
   };
 
   return (
-    <div className="text-center border-b border-gray-600  dark:border-b dark:border-gray-600 mt-8 space-y-8 p-[40px] ">
-      <div>
-        <div className="w-[100px] h-[100px] text-3xl flex justify-center items-center rounded-full text-white bg-[#ef3735] dark:bg-blue-600 mx-auto">
-          1
-        </div>
-        <motion.p
-          initial={{ opacity: 0, y: -70 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-          className="text-2xl text-center mt-8 mb-8"
-        >
-          {t("step1")}
-        </motion.p>
+    <div className="text-center  mt-4 space-y-8 p-[20px] ">
 
+      <div >
 
-<div className="flex flex-wrap gap-2 sm:gap-4 mb-4 justify-center">
-  {images.map((src, index) => (
-    <motion.div
-      key={index}
-      initial={{ opacity: 0, x: 100 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      transition={{ duration: 1 }}
-      onClick={() => handleImageSelect(index)}
-      className={`relative cursor-pointer border-4 rounded-lg overflow-hidden
-                 w-[calc(50%-0.5rem)] sm:w-[calc(50%-1rem)]
-                 md:w-[calc(33.33%-1rem)] lg:w-[calc(25%-1.5rem)] ${
-        selectedImage === index ? "border-[#ef3735] dark:border-blue-400" : "border-transparent"
-      }`}
-    >
-      <Image
-        src={src}
-        alt={`Image ${index + 1}`}
-        width={300}
-        height={300}
-        className="object-cover w-full"
-      />
-    </motion.div>
-  ))}
-</div>
-      </div>
-
-      <div className="mt-8">
-        <div className="w-[100px] h-[100px] text-3xl flex justify-center items-center rounded-full text-white bg-[#ef3735] dark:bg-blue-600 mx-auto">
-          2
-        </div>
         <motion.p
           initial={{ opacity: 0, y: -70 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -202,7 +118,7 @@ export function Section() {
       </motion.p>
       <div className="flex justify-center gap-16 items-center mb-16">
         <Button
-          color={theme === "dark" ? "primary" : "danger"}
+          color="primary"
           variant="ghost"
           onPress={openModel}
           endContent={<BiSolidShow className="text-[20px]" />}
@@ -210,7 +126,7 @@ export function Section() {
           {t("view_image")}
         </Button>
         <Button
-          color={theme === "dark" ? "primary" : "danger"}
+          color="primary"
           variant="ghost"
           onPress={handleDownload}
           endContent={<FaDownload />}
@@ -236,11 +152,10 @@ export function Section() {
             <>
               <ModalHeader>{t("modal_title")}</ModalHeader>
               <ModalBody >
-                {selectedImage !== null && (
                   <div className="relative ">
                     <div className="">
                     <Image
-                      src={images[selectedImage]}
+                      src={eid}
                       alt="Selected Image"
                       width={300}
                       height={300}
@@ -249,7 +164,7 @@ export function Section() {
                     </div>
    
                     <div
-                      className=" absolute left-1/2 transform -translate-x-1/2 bottom-[32%]  text-white font-bold text-2xl"
+                      className=" absolute left-1/2 transform -translate-x-[30%] bottom-[10%]  text-white font-bold text-[15px]"
                       style={{
                         textShadow: "2px 2px 4px rgba(0, 0, 0, 0.8)",
                       }}
@@ -257,14 +172,14 @@ export function Section() {
                       {name}
                     </div>
                   </div>
-                )}
+              
               </ModalBody>
               <ModalFooter>
                 <Button color="danger" variant="light" onPress={onClose}>
                   {t("close")}
                 </Button>
                 <Button
-                   color="danger"
+                   color="primary"
                   onPress={onClose}
                   onClick={handleDownload}
                   endContent={<FaDownload />}

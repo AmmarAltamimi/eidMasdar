@@ -39,7 +39,7 @@ export const NavbarUi = () => {
 
   return (
     <Navbar
-      className="bg-gradient-to-r from-[#ef3735] to-[#ef3735] dark:bg-gradient-to-br dark:from-gray-800 dark:to-gray-900 p-2"
+      className="bg-gradient-to-r from-[#00457c] to-[#00457c] dark:bg-gradient-to-br dark:from-gray-800 dark:to-gray-900 p-2"
       isBordered
       shouldHideOnScroll
       onMenuOpenChange={setIsMenuOpen}

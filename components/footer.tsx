@@ -48,7 +48,6 @@ export const Footer = () => {
   <div className="container mx-auto px-4 sm:px-10 text-white">
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 text-center sm:text-left px-4 border-neutral-900 pb-4">
       
-      {/* العمود الأول */}
       <div className="box">
         {locale === "en" ? (
           <Image className="w-[200px] mx-auto md:mx-0 " src={logo1} alt="Logo" />
@@ -111,7 +110,6 @@ export const Footer = () => {
         </motion.ul>
       </div>
 
-      {/* العمود الثاني (روابط سريعة) */}
 
       <div className="box flex flex-col justify-center">
       <p className={`text-white ${locale === "en" ? "text-left" : "text-right"} text-xl mb-8`}>
@@ -128,7 +126,7 @@ export const Footer = () => {
               href="mailto:info@mbm.com.sa"
               className="text-gray-300 hover:text-gray-400 hover:translate-x-3 transition duration-300 flex items-center"
             >
-              <MdOutlineKeyboardDoubleArrowRight className="text-[#ef3735] dark:text-blue-500 text-[20px]" /> {t("companyEmail")}
+              <MdOutlineKeyboardDoubleArrowRight className="text-[#00457c] dark:text-blue-500 text-[20px]" /> {t("companyEmail")}
             </Link>
           </motion.li>
           <motion.li variants={ChlidrenLink2Variants} className="border-b border-neutral-900 pb-2">
@@ -136,7 +134,7 @@ export const Footer = () => {
               href="https://masdar.co/ar/our-team/"
               className="text-gray-300 hover:text-gray-400 hover:translate-x-3 transition duration-300 flex items-center"
             >
-              <MdOutlineKeyboardDoubleArrowRight className="text-[#ef3735] dark:text-blue-500 text-[20px]" /> <span>{t("boardMembers")}</span>
+              <MdOutlineKeyboardDoubleArrowRight className="text-[#00457c] dark:text-blue-500 text-[20px]" /> <span>{t("boardMembers")}</span>
             </Link>
           </motion.li>
           <motion.li variants={ChlidrenLink1Variants} className="border-b border-neutral-900 pb-2">
@@ -144,7 +142,7 @@ export const Footer = () => {
               href="https://masdar.co/ar/certificates/"
               className="text-gray-300 hover:text-gray-400 hover:translate-x-3 transition duration-300 flex items-center"
             >
-              <MdOutlineKeyboardDoubleArrowRight className="text-[#ef3735] dark:text-blue-500 text-[20px]" /> <span>{t("certifications")}</span>
+              <MdOutlineKeyboardDoubleArrowRight className="text-[#00457c] dark:text-blue-500 text-[20px]" /> <span>{t("certifications")}</span>
             </Link>
           </motion.li>
           <motion.li variants={ChlidrenLink2Variants} className="border-b border-neutral-900 pb-2">
@@ -152,7 +150,7 @@ export const Footer = () => {
               href="https://masdar.co/ar/contact/#locations"
               className="text-gray-300 hover:text-gray-400 hover:translate-x-3 transition duration-300 flex items-center"
             >
-              <MdOutlineKeyboardDoubleArrowRight className="text-[#ef3735] dark:text-blue-500 text-[20px]" /> <span>{t("branchLocations")}</span>
+              <MdOutlineKeyboardDoubleArrowRight className="text-[#00457c] dark:text-blue-500 text-[20px]" /> <span>{t("branchLocations")}</span>
             </Link>
           </motion.li>
           <motion.li variants={ChlidrenLink2Variants} className="border-b border-neutral-900 pb-2">
@@ -160,7 +158,7 @@ export const Footer = () => {
               href="https://masdar.co/ar/our-partners/"
               className="text-gray-300 hover:text-gray-400 hover:translate-x-3 transition duration-300 flex items-center"
             >
-              <MdOutlineKeyboardDoubleArrowRight className="text-[#ef3735] dark:text-blue-500 text-[20px]" /> <span>{t("ourPartners")}</span>
+              <MdOutlineKeyboardDoubleArrowRight className="text-[#00457c] dark:text-blue-500 text-[20px]" /> <span>{t("ourPartners")}</span>
             </Link>
           </motion.li>
           <motion.li variants={ChlidrenLink1Variants} className="border-b border-neutral-900 pb-2">
@@ -168,13 +166,13 @@ export const Footer = () => {
               href="https://masdar.co/ar/contact/"
               className="text-gray-300 hover:text-gray-400 hover:translate-x-3 transition duration-300 flex items-center"
             >
-              <MdOutlineKeyboardDoubleArrowRight className="text-[#ef3735] dark:text-blue-500 text-[20px]" /> <span>{t("contactUsLink")}</span>
+              <MdOutlineKeyboardDoubleArrowRight className="text-[#00457c] dark:text-blue-500 text-[20px]" /> <span>{t("contactUsLink")}</span>
             </Link>
           </motion.li>
         </motion.ul>
       </div>
 
-      {/* العمود الثالث (روابط ذات صلة) */}
+
       <div className="box flex flex-col justify-center">
         <p className={`text-white ${locale === "en" ? "text-left" : "text-right"} text-xl mb-8`}>
           {t("relatedLinks")}
@@ -190,7 +188,7 @@ export const Footer = () => {
               href="https://masdar.co/ar/about/"
               className="text-gray-300 hover:text-gray-400 hover:translate-x-3 transition duration-300 flex items-center"
             >
-              <MdOutlineKeyboardDoubleArrowRight className="text-[#ef3735] dark:text-blue-500 text-[20px]" /> <span>{t("aboutMasdar")}</span>
+              <MdOutlineKeyboardDoubleArrowRight className="text-[#00457c] dark:text-blue-500 text-[20px]" /> <span>{t("aboutMasdar")}</span>
             </Link>
           </motion.li>
           <motion.li variants={ChlidrenLink2Variants} className="border-b border-neutral-900 pb-2">
@@ -198,7 +196,7 @@ export const Footer = () => {
               href="https://masdar.co/ar/about/#vision-mission"
               className="text-gray-300 hover:text-gray-400 hover:translate-x-3 transition duration-300 flex items-center"
             >
-              <MdOutlineKeyboardDoubleArrowRight className="text-[#ef3735] dark:text-blue-500  text-[20px]" /> <span>{t("visionMission")}</span>
+              <MdOutlineKeyboardDoubleArrowRight className="text-[#00457c] dark:text-blue-500  text-[20px]" /> <span>{t("visionMission")}</span>
             </Link>
           </motion.li>
           <motion.li variants={ChlidrenLink1Variants} className="border-b border-neutral-900 pb-2">
@@ -206,7 +204,7 @@ export const Footer = () => {
               href="https://masdar.co/ar/about/#history"
               className="text-gray-300 hover:text-gray-400 hover:translate-x-3 transition duration-300 flex items-center"
             >
-              <MdOutlineKeyboardDoubleArrowRight className="text-[#ef3735] dark:text-blue-500 text-[20px]" /> <span>{t("ourHistory")}</span>
+              <MdOutlineKeyboardDoubleArrowRight className="text-[#00457c] dark:text-blue-500 text-[20px]" /> <span>{t("ourHistory")}</span>
             </Link>
           </motion.li>
           <motion.li variants={ChlidrenLink2Variants} className="border-b border-neutral-900 pb-2">
@@ -214,7 +212,7 @@ export const Footer = () => {
               href="https://masdar.co/ar/our-services/"
               className="text-gray-300 hover:text-gray-400 hover:translate-x-3 transition duration-300 flex items-center"
             >
-              <MdOutlineKeyboardDoubleArrowRight className="text-[#ef3735] dark:text-blue-500 text-[20px]" /> <span>{t("ourServices")}</span>
+              <MdOutlineKeyboardDoubleArrowRight className="text-[#00457c] dark:text-blue-500 text-[20px]" /> <span>{t("ourServices")}</span>
             </Link>
           </motion.li>
           <motion.li variants={ChlidrenLink1Variants} className="border-b border-neutral-900 pb-2">
@@ -222,13 +220,13 @@ export const Footer = () => {
               href="https://masdar.co/ar/products/"
               className="text-gray-300 hover:text-gray-400 hover:translate-x-3 transition duration-300 flex items-center"
             >
-              <MdOutlineKeyboardDoubleArrowRight className="text-[#ef3735] dark:text-blue-500 text-[20px]" /> <span>{t("products")}</span>
+              <MdOutlineKeyboardDoubleArrowRight className="text-[#00457c] dark:text-blue-500 text-[20px]" /> <span>{t("products")}</span>
             </Link>
           </motion.li>
         </motion.ul>
       </div>
 
-      {/* العمود الرابع (اتصل بنا) */}
+
       <motion.div
         className="box flex-col justify-center"
         variants={FooterVariants}
@@ -240,14 +238,14 @@ export const Footer = () => {
         </p>
         <div className="w-fit flex flex-col space-y-8 ">
           <motion.div variants={ChlidrenLoacationVariants} className="flex items-center lg:justify-start text-gray-400">
-            <MdAttachEmail className="text-[30px] text-[#ef3735] dark:text-blue-500 ml-1" />
+            <MdAttachEmail className="text-[30px] text-[#00457c] dark:text-blue-500 ml-1" />
             <Link href="mailto:info@mbm.com.sa" className="text-gray-300 ml-2">
               info@mbm.com.sa
             </Link>
           </motion.div>
 
           <motion.div variants={ChlidrenLoacationVariants} className="flex items-center lg:justify-start text-gray-400">
-            <MdWifiCalling3 className="text-[30px] text-[#ef3735] dark:text-blue-500" />
+            <MdWifiCalling3 className="text-[30px] text-[#00457c] dark:text-blue-500" />
             <Link href="tel:+9668001240272" className="text-gray-300 ml-2">
               <span>8001240272</span>
             </Link>
@@ -255,7 +253,7 @@ export const Footer = () => {
 
           <motion.div variants={ChlidrenLoacationVariants} className="flex items-center lg:justify-start text-gray-400">
             <div className="ml-2 flex">
-              <IoLocationSharp className="text-[30px] text-[#ef3735] dark:text-blue-500" />
+              <IoLocationSharp className="text-[30px] text-[#00457c] dark:text-blue-500" />
               <Link className="text-gray-300 flex flex-col " href="https://www.google.com/maps/place/%D9%85%D8%AC%D9%85%D9%88%D8%B9%D8%A9+%D9%85%D8%B5%D8%AF%D8%B1%E2%80%AD/@24.8445186,46.7570114,17z/data=!3m1!4b1!4m6!3m5!1s0x3e2efeae1c979a9b:0x5d51839bbc60bf7!8m2!3d24.8445186!4d46.7570114!16s%2Fg%2F11g8cyrx_4?entry=ttu&g_ep=EgoyMDI1MDIwNS4xIKXMDSoASAFQAw%3D%3D">
                 <span className="text-start">{t("headOfficeAddress1")}</span>
                 <span className="text-start">{t("headOfficeAddress2")}</span> 
