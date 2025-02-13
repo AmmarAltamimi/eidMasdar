@@ -164,10 +164,8 @@ export function Section() {
                     </div>
    
                     <div
-                      className=" absolute left-1/2 transform -translate-x-[30%] bottom-[10%]  text-white font-bold text-[15px]"
-                      style={{
-                        textShadow: "2px 2px 4px rgba(0, 0, 0, 0.8)",
-                      }}
+                      className=" absolute left-1/2 transform -translate-x-[30%] bottom-[10%]  text-white  text-[15px]"
+               
                     >
                       {name}
                     </div>
