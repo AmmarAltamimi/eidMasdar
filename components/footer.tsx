@@ -44,7 +44,7 @@ export const Footer = () => {
 
 
   return (
-<div className="border-b border-neutral-900 bg-[#00457c] dark:bg-gradient-to-br dark:from-gray-800 dark:to-gray-900 text-gray-800 p-6 mt-8">
+<div className="border-b border-neutral-900 bg-[#013b6b]  dark:bg-gradient-to-br dark:from-gray-800 dark:to-gray-900 text-gray-800 p-6 mt-8">
   <div className="container mx-auto px-4 sm:px-10 text-white">
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 text-center sm:text-left px-4 border-neutral-900 pb-4">
       
