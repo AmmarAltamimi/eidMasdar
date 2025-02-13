@@ -75,7 +75,7 @@ export const Footer = () => {
             <Link
               href="https://x.com/MASDARBM"
               target="_blank"
-              className="ml-3 bg-gray-700 text-gray-400 flex justify-center items-center w-12 h-12 text-2xl transition duration-500 hover:bg-black rounded-md"
+              className="ml-3 bg-gray-200 text-gray-900 flex justify-center items-center w-12 h-12 text-2xl transition duration-500 hover:bg-black rounded-md hover:text-gray-200"
             >
               <FaSquareXTwitter />
             </Link>
@@ -84,27 +84,27 @@ export const Footer = () => {
             <Link
               href="https://www.linkedin.com/company/masdar%D9%85%D8%B5%D8%AF%D8%B1"
               target="_blank"
-              className="bg-gray-700 text-gray-400 flex justify-center items-center w-12 h-12 text-2xl transition duration-500 hover:bg-blue-600 rounded-md"
+              className="bg-gray-200 text-[#013b6b] flex justify-center items-center w-12 h-12 text-2xl transition duration-500 hover:bg-blue-600 rounded-md hover:text-gray-200"
             >
               <FaLinkedin />
             </Link>
           </motion.li>
           <motion.li>
             <Link
-              href="https://www.facebook.com/Masdar.Group.sa/"
+              href="https://www.instagram.com/masdar.saudi/"
               target="_blank"
-              className="bg-gray-700 text-gray-400 flex justify-center items-center w-12 h-12 text-2xl transition duration-500 hover:bg-blue-600 rounded-md"
+              className="bg-gray-200 text-red-600 flex justify-center items-center w-12 h-12 text-2xl transition duration-500 hover:bg-red-600 rounded-md hover:text-gray-200"
             >
-              <FaFacebook />
+              <FaInstagram />
             </Link>
           </motion.li>
           <motion.li>
             <Link
-              href="https://www.instagram.com/masdar.saudi/"
+              href="https://www.facebook.com/Masdar.Group.sa/"
               target="_blank"
-              className="bg-gray-700 text-gray-400 flex justify-center items-center w-12 h-12 text-2xl transition duration-500 hover:bg-red-600 rounded-md"
+              className="bg-gray-200 text-[#013b6b] flex justify-center items-center w-12 h-12 text-2xl transition duration-500 hover:bg-blue-600 rounded-md hover:text-gray-200 "
             >
-              <FaInstagram />
+              <FaFacebook />
             </Link>
           </motion.li>
         </motion.ul>
