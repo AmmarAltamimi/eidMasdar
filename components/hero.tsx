@@ -1,15 +1,15 @@
 "use client";
 import Lottie from "lottie-react";
-import eidAr from "../public/lottie/AnimationAr.json";
-import eidEn from "../public/lottie/AnimationEn.json";
+import logo1 from "../public/images/logo1.png";
 import { motion } from "framer-motion";
 import { useLocale, useTranslations } from "next-intl";
 import { useTheme } from "next-themes";
+import Image from "next/image";
 
 export function Hero() {
   const locale = useLocale();
   const t = useTranslations("Hero");
-  const { theme } = useTheme(); 
+  const { theme } = useTheme();
 
   const grandVariants = {
     hidden: {},
@@ -23,11 +23,12 @@ export function Hero() {
 
   const Child3Variants = {
     hidden: { opacity: 0, x: locale === "en" ? -100 : 100 },
-    visible: { opacity: 1, x: 0, transition: { duration: 1, staggerChildren: 0.03 } },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 1, staggerChildren: 0.03 },
+    },
   };
-
-
-
 
   return (
     <section className=" border-b border-gray-600 dark:border-b dark:border-gray-600 ">
@@ -46,42 +47,16 @@ export function Hero() {
               {t("title")}
             </motion.h1>
 
-            <motion.p
-              variants={Child3Variants}
-              className="mt-6 text-lg leading-relaxed text-gray-700 dark:text-gray-300"
-            >
-              {t("description1")}{" "}
-              <span className="font-semibold text-[#00457c] dark:text-blue-400">
-                {t("companyName")}
-              </span>{" "}
-              {t("description2")}
-            </motion.p>
-
-            <ul className="mt-6 space-y-3 text-lg text-gray-700 dark:text-gray-300">
-              <motion.li variants={Child3Variants}>
-                🎨 <span className="font-semibold">{t("feature1")}</span>
-              </motion.li>
-              <motion.li variants={Child3Variants}>
-                📩 <span className="font-semibold">{t("feature2")}</span>
-              </motion.li>
-            </ul>
-
-            <motion.h3
-              variants={Child3Variants}
-              className="mt-8 text-xl font-semibold text-[#00457c] dark:text-blue-400"
-            >
-              {t("whyChooseUs")}
-            </motion.h3>
-            <motion.p
-  variants={Child3Variants}
-  className="mt-4 text-gray-700 dark:text-gray-300 whitespace-pre-wrap"
->
-  {t("details")}
-</motion.p>
           </motion.div>
 
           <div className="lg:w-1/2">
-            {locale === "en" ? <Lottie animationData={eidEn} className="w-full mx-auto" /> : <Lottie animationData={eidAr} className="w-full mx-auto" />}
+            <Image
+              src={logo1}
+              alt="Selected Image"
+              width={300}
+              height={300}
+              className="w-full "
+            />
           </div>
         </div>
       </div>

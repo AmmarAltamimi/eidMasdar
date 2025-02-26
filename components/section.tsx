@@ -20,7 +20,7 @@ import { CiCreditCard1 } from "react-icons/ci";
 import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { useTheme } from "next-themes";
-import eid from "../public/images/card.png";
+import card from "../public/images/card.jpg";
 
 export function Section() {
   const t = useTranslations("section");
@@ -61,7 +61,7 @@ export function Section() {
     }
     const canvas = document.createElement("canvas");
     const img = new window.Image();
-    img.src = eid.src;
+    img.src = card.src;
     img.onload = async () => {
       const context = canvas.getContext("2d");
       if (!context) return;
@@ -71,7 +71,7 @@ export function Section() {
       context.font = "bold 40px Arial";
       context.fillStyle = "white";
       context.textAlign = "center";
-      context.fillText(name, canvas.width / 2 + 80, canvas.height - 200);
+      context.fillText(name, canvas.width / 2 , canvas.height - 250);
       const link = document.createElement("a");
       link.download = "masdar.png";
       link.href = canvas.toDataURL();
@@ -155,7 +155,7 @@ export function Section() {
                   <div className="relative ">
                     <div className="">
                     <Image
-                      src={eid}
+                      src={card}
                       alt="Selected Image"
                       width={300}
                       height={300}
@@ -164,7 +164,7 @@ export function Section() {
                     </div>
    
                     <div
-                      className=" absolute left-1/2 transform -translate-x-[30%] bottom-[10%]  text-white  text-[15px]"
+                      className=" absolute left-1/2 transform -translate-x-[50%] bottom-[15%]  text-white  text-[15px]"
                
                     >
                       {name}
