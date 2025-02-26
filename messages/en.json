@@ -77,9 +77,10 @@
           "joinUs": "Join Us",
           "contactUsTitle": "Contact Us",
           "headOfficeAddress1": "Riyadh, Thumama Road 537",
-          "headOfficeAddress2": " East Al Munsiyah District Building No. 3461",
-          "headOfficeAddress3": "P.O. Box 40444",
-          "headOfficeAddress4": " RIYADH 11499"
+          "headOfficeAddress2": " East Al Munsiyah District",
+          "headOfficeAddress3": " Building No. 3461P.O. Box ",
+          "headOfficeAddress4": " 40444 ",
+          "headOfficeAddress5": " RIYADH 11499"
         }
       }
       

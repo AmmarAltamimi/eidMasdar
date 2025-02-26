@@ -75,10 +75,11 @@
       "products": "المنتجات",
       "joinUs": "انضم الينا",
       "contactUsTitle": "اتصل بنا",
-      "headOfficeAddress1": " المكتب الرئيسي-الرياض طريقة الثمامه537 ",
+      "headOfficeAddress1": " الرياض ، طريقة الثمامه537 ",
       "headOfficeAddress2": "المونسية شرق مبنى رقم 3461",
-      "headOfficeAddress3": "ص. ب 40444",
-      "headOfficeAddress4": "الرياض 11499"
+      "headOfficeAddress3": "",
+      "headOfficeAddress4": "ص. ب 40444",
+      "headOfficeAddress5": "الرياض 11499"
     }
 }
 

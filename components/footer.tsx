@@ -254,11 +254,12 @@ export const Footer = () => {
           <motion.div variants={ChlidrenLoacationVariants} className="flex items-center lg:justify-start text-gray-400">
             <div className="ml-2 flex">
               <IoLocationSharp className="text-[30px] text-gray-900 dark:text-blue-500" />
-              <Link className="text-gray-300 flex flex-col " href="https://www.google.com/maps/place/%D9%85%D8%AC%D9%85%D9%88%D8%B9%D8%A9+%D9%85%D8%B5%D8%AF%D8%B1%E2%80%AD/@24.8445186,46.7570114,17z/data=!3m1!4b1!4m6!3m5!1s0x3e2efeae1c979a9b:0x5d51839bbc60bf7!8m2!3d24.8445186!4d46.7570114!16s%2Fg%2F11g8cyrx_4?entry=ttu&g_ep=EgoyMDI1MDIwNS4xIKXMDSoASAFQAw%3D%3D">
-                <span className="text-start">{t("headOfficeAddress1")}</span>
-                <span className="text-start">{t("headOfficeAddress2")}</span> 
-                <span className="text-start">{t("headOfficeAddress3")}</span>
-                <span className="text-start">{t("headOfficeAddress4")}</span> 
+              <Link className="text-gray-300 flex flex-col justify-start items-start " href="https://www.google.com/maps/place/%D9%85%D8%AC%D9%85%D9%88%D8%B9%D8%A9+%D9%85%D8%B5%D8%AF%D8%B1%E2%80%AD/@24.8445186,46.7570114,17z/data=!3m1!4b1!4m6!3m5!1s0x3e2efeae1c979a9b:0x5d51839bbc60bf7!8m2!3d24.8445186!4d46.7570114!16s%2Fg%2F11g8cyrx_4?entry=ttu&g_ep=EgoyMDI1MDIwNS4xIKXMDSoASAFQAw%3D%3D">
+                <span className="">{t("headOfficeAddress1")}</span>
+                <span className="">{t("headOfficeAddress2")}</span> 
+                <span className="">{t("headOfficeAddress3")}</span>
+                <span className="">{t("headOfficeAddress4")}</span> 
+                <span className="">{t("headOfficeAddress5")}</span> 
               </Link>
             </div>
           </motion.div>
