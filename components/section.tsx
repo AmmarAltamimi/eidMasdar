@@ -1,4 +1,3 @@
-// Section.tsx
 "use client";
 import React, { useState, useEffect } from "react";
 import {
@@ -10,6 +9,7 @@ import {
   ModalBody,
   ModalFooter,
   useDisclosure,
+  Spinner,
 } from "@heroui/react";
 import Image from "next/image";
 import { FaRegUser, FaDownload } from "react-icons/fa";
@@ -20,7 +20,7 @@ import { CiCreditCard1 } from "react-icons/ci";
 import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { useTheme } from "next-themes";
-import card from "../public/images/card.jpg";
+import card from "../public/images/card.jpeg";
 
 export function Section() {
   const t = useTranslations("section");
@@ -28,7 +28,7 @@ export function Section() {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const [downloadCount, setDownloadCount] = useState<number>();
   const router = useRouter();
-  const { theme } = useTheme(); 
+  const { theme } = useTheme();
 
   useEffect(() => {
     const fetchDownloadCount = async () => {
@@ -42,9 +42,6 @@ export function Section() {
     };
     fetchDownloadCount();
   }, []);
-
-
-
 
   const openModel = () => {
     if (!name) {
@@ -65,15 +62,24 @@ export function Section() {
     img.onload = async () => {
       const context = canvas.getContext("2d");
       if (!context) return;
+
+      // Set canvas dimensions to match image
       canvas.width = img.width;
       canvas.height = img.height;
+
+      // Calculate dynamic font size and position
+      const fontSize = Math.round(canvas.width * 0.03); // 4% of image width
+      const textY = canvas.height - canvas.height * 0.15; // 15% from bottom
+
       context.drawImage(img, 0, 0);
-      context.font = "bold 40px Arial";
+      context.font = `bold ${fontSize}px Arial`;
       context.fillStyle = "white";
       context.textAlign = "center";
-      context.fillText(name, canvas.width / 2 , canvas.height - 250);
+      context.textBaseline = "middle";
+      context.fillText(name, canvas.width / 2, textY);
+
       const link = document.createElement("a");
-      link.download = "masdar.png";
+      link.download = "masdar.jpeg";
       link.href = canvas.toDataURL();
       link.click();
       toast.success(t("success_download"));
@@ -84,10 +90,8 @@ export function Section() {
   };
 
   return (
-    <div className="text-center  mt-4 space-y-8 p-[20px] ">
-
-      <div >
-
+    <div className="text-center mt-4 space-y-8 p-[20px]">
+      <div>
         <motion.p
           initial={{ opacity: 0, y: -70 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -103,7 +107,9 @@ export function Section() {
           className="w-fit mx-auto text-gray-900"
           onChange={(e) => setName(e.target.value)}
           placeholder={t("enter_name")}
-          startContent={<FaRegUser className="text-2xl text-gray-900 dark:text-white pointer-events-none flex-shrink-0" />}
+          startContent={
+            <FaRegUser className="text-2xl text-gray-900 dark:text-white pointer-events-none flex-shrink-0" />
+          }
           type="text"
         />
       </div>
@@ -140,9 +146,10 @@ export function Section() {
           initial={{ opacity: 0, x: -100 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 1.5 }}
-          className="text-[20px]"
+          className="text-[20px] mb-2"
         >
-          {t("card")} {downloadCount}
+          {t("card")}
+          {downloadCount === undefined ? <Spinner size="sm" /> : downloadCount}
         </motion.p>
       </div>
 
@@ -151,33 +158,38 @@ export function Section() {
           {(onClose) => (
             <>
               <ModalHeader>{t("modal_title")}</ModalHeader>
-              <ModalBody >
-                  <div className="relative ">
-                    <div className="">
-                    <Image
-                      src={card}
-                      alt="Selected Image"
-                      width={300}
-                      height={300}
-                      className="w-full "
-                    />
-                    </div>
-   
-                    <div
-                      className=" absolute left-1/2 transform -translate-x-[50%] bottom-[15%]  text-white  text-[15px]"
-               
-                    >
-                      {name}
-                    </div>
+              <ModalBody>
+                <div className="relative">
+                  <Image
+                    src={card}
+                    alt="Selected Image"
+                    width={300}
+                    height={300}
+                    className="w-full"
+                    style={{
+                      width: "100%",
+                      height: "auto",
+                    }}
+                  />
+                  <div
+                    className="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+                    style={{
+                      top: "85%",
+                      fontSize: `${300 * 0.04}px`,
+                      fontWeight: "bold",
+                      color: "white",
+                    }}
+                  >
+                    {name}
                   </div>
-              
+                </div>
               </ModalBody>
               <ModalFooter>
                 <Button color="danger" variant="light" onPress={onClose}>
                   {t("close")}
                 </Button>
                 <Button
-                   color="primary"
+                  color="primary"
                   onPress={onClose}
                   onClick={handleDownload}
                   endContent={<FaDownload />}
