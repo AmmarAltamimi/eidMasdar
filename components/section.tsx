@@ -62,25 +62,24 @@ export function Section() {
     img.onload = async () => {
       const context = canvas.getContext("2d");
       if (!context) return;
-
-      // Set canvas dimensions to match image
+      
       canvas.width = img.width;
       canvas.height = img.height;
-
-      // Calculate dynamic font size and position
-      const fontSize = Math.round(canvas.width * 0.03); // 4% of image width
-      const textY = canvas.height - canvas.height * 0.15; // 15% from bottom
-
+      
+      const fontSize = Math.round(canvas.width * 0.03);
+      const textY = canvas.height - (canvas.height * 0.15);
+  
       context.drawImage(img, 0, 0);
       context.font = `bold ${fontSize}px Arial`;
       context.fillStyle = "white";
       context.textAlign = "center";
       context.textBaseline = "middle";
       context.fillText(name, canvas.width / 2, textY);
-
+  
       const link = document.createElement("a");
-      link.download = "masdar.jpeg";
-      link.href = canvas.toDataURL();
+      link.download = "masdar.png"; // Changed to .jpg
+      // Specify JPEG format with quality (0.92 = 92% quality)
+      link.href = canvas.toDataURL("image/png");
       link.click();
       toast.success(t("success_download"));
       await fetch("/api/downloads", { method: "POST" });
@@ -88,7 +87,6 @@ export function Section() {
       router.refresh();
     };
   };
-
   return (
     <div className="text-center mt-4 space-y-8 p-[20px]">
       <div>

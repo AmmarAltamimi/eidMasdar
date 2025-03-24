@@ -121,7 +121,7 @@ export const Footer = () => {
           whileInView="visible"
           className="flex flex-col gap-2 h-full w-fit "
         >
-          <motion.li variants={ChlidrenLink1Variants} className="border-b border-neutral-900 pb-2">
+          <motion.li variants={ChlidrenLink1Variants} className="pb-2">
             <Link
               href="mailto:info@mbm.com.sa"
               className="text-gray-300 hover:text-gray-400 hover:translate-x-3 transition duration-300 flex items-center"
@@ -129,7 +129,7 @@ export const Footer = () => {
               <MdOutlineKeyboardDoubleArrowRight className="text-gray-900 dark:text-blue-500 text-[20px]" /> {t("companyEmail")}
             </Link>
           </motion.li>
-          <motion.li variants={ChlidrenLink2Variants} className="border-b border-neutral-900 pb-2">
+          <motion.li variants={ChlidrenLink2Variants} className=" pb-2">
             <Link
               href="https://masdar.co/ar/our-team/"
               className="text-gray-300 hover:text-gray-400 hover:translate-x-3 transition duration-300 flex items-center"
@@ -137,7 +137,7 @@ export const Footer = () => {
               <MdOutlineKeyboardDoubleArrowRight className="text-gray-900 dark:text-blue-500 text-[20px]" /> <span>{t("boardMembers")}</span>
             </Link>
           </motion.li>
-          <motion.li variants={ChlidrenLink1Variants} className="border-b border-neutral-900 pb-2">
+          <motion.li variants={ChlidrenLink1Variants} className=" pb-2">
             <Link
               href="https://masdar.co/ar/certificates/"
               className="text-gray-300 hover:text-gray-400 hover:translate-x-3 transition duration-300 flex items-center"
@@ -145,7 +145,7 @@ export const Footer = () => {
               <MdOutlineKeyboardDoubleArrowRight className="text-gray-900 dark:text-blue-500 text-[20px]" /> <span>{t("certifications")}</span>
             </Link>
           </motion.li>
-          <motion.li variants={ChlidrenLink2Variants} className="border-b border-neutral-900 pb-2">
+          <motion.li variants={ChlidrenLink2Variants} className=" pb-2">
             <Link
               href="https://masdar.co/ar/contact/#locations"
               className="text-gray-300 hover:text-gray-400 hover:translate-x-3 transition duration-300 flex items-center"
@@ -153,7 +153,7 @@ export const Footer = () => {
               <MdOutlineKeyboardDoubleArrowRight className="text-gray-900 dark:text-blue-500 text-[20px]" /> <span>{t("branchLocations")}</span>
             </Link>
           </motion.li>
-          <motion.li variants={ChlidrenLink2Variants} className="border-b border-neutral-900 pb-2">
+          <motion.li variants={ChlidrenLink2Variants} className=" pb-2">
             <Link
               href="https://masdar.co/ar/our-partners/"
               className="text-gray-300 hover:text-gray-400 hover:translate-x-3 transition duration-300 flex items-center"
@@ -161,7 +161,7 @@ export const Footer = () => {
               <MdOutlineKeyboardDoubleArrowRight className="text-gray-900 dark:text-blue-500 text-[20px]" /> <span>{t("ourPartners")}</span>
             </Link>
           </motion.li>
-          <motion.li variants={ChlidrenLink1Variants} className="border-b border-neutral-900 pb-2">
+          <motion.li variants={ChlidrenLink1Variants} className=" pb-2">
             <Link
               href="https://masdar.co/ar/contact/"
               className="text-gray-300 hover:text-gray-400 hover:translate-x-3 transition duration-300 flex items-center"
@@ -183,7 +183,7 @@ export const Footer = () => {
           whileInView="visible"
           className="flex flex-col gap-2 h-full w-fit"
         >
-          <motion.li variants={ChlidrenLink1Variants} className="border-b border-neutral-900 pb-2">
+          <motion.li variants={ChlidrenLink1Variants} className=" pb-2">
             <Link
               href="https://masdar.co/ar/about/"
               className="text-gray-300 hover:text-gray-400 hover:translate-x-3 transition duration-300 flex items-center"
@@ -191,7 +191,7 @@ export const Footer = () => {
               <MdOutlineKeyboardDoubleArrowRight className="text-gray-900 dark:text-blue-500 text-[20px]" /> <span>{t("aboutMasdar")}</span>
             </Link>
           </motion.li>
-          <motion.li variants={ChlidrenLink2Variants} className="border-b border-neutral-900 pb-2">
+          <motion.li variants={ChlidrenLink2Variants} className=" pb-2">
             <Link
               href="https://masdar.co/ar/about/#vision-mission"
               className="text-gray-300 hover:text-gray-400 hover:translate-x-3 transition duration-300 flex items-center"
@@ -199,7 +199,7 @@ export const Footer = () => {
               <MdOutlineKeyboardDoubleArrowRight className="text-gray-900 dark:text-blue-500  text-[20px]" /> <span>{t("visionMission")}</span>
             </Link>
           </motion.li>
-          <motion.li variants={ChlidrenLink1Variants} className="border-b border-neutral-900 pb-2">
+          <motion.li variants={ChlidrenLink1Variants} className=" pb-2">
             <Link
               href="https://masdar.co/ar/about/#history"
               className="text-gray-300 hover:text-gray-400 hover:translate-x-3 transition duration-300 flex items-center"
@@ -207,7 +207,7 @@ export const Footer = () => {
               <MdOutlineKeyboardDoubleArrowRight className="text-gray-900 dark:text-blue-500 text-[20px]" /> <span>{t("ourHistory")}</span>
             </Link>
           </motion.li>
-          <motion.li variants={ChlidrenLink2Variants} className="border-b border-neutral-900 pb-2">
+          <motion.li variants={ChlidrenLink2Variants} className=" pb-2">
             <Link
               href="https://masdar.co/ar/our-services/"
               className="text-gray-300 hover:text-gray-400 hover:translate-x-3 transition duration-300 flex items-center"
@@ -215,7 +215,7 @@ export const Footer = () => {
               <MdOutlineKeyboardDoubleArrowRight className="text-gray-900 dark:text-blue-500 text-[20px]" /> <span>{t("ourServices")}</span>
             </Link>
           </motion.li>
-          <motion.li variants={ChlidrenLink1Variants} className="border-b border-neutral-900 pb-2">
+          <motion.li variants={ChlidrenLink1Variants} className=" pb-2">
             <Link
               href="https://masdar.co/ar/products/"
               className="text-gray-300 hover:text-gray-400 hover:translate-x-3 transition duration-300 flex items-center"
