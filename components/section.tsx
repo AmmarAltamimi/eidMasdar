@@ -21,7 +21,7 @@ import { CiCreditCard1 } from "react-icons/ci";
 import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { useTheme } from "next-themes";
-import card from "../public/images/card.jpeg";
+import card from "../public/images/card.jpg";
 
 export function Section() {
   const t = useTranslations("section");
