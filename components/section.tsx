@@ -29,7 +29,7 @@ export function Section() {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const [downloadCount, setDownloadCount] = useState<number>();
   const router = useRouter();
-  const { theme } = useTheme();
+  const { theme } = useTheme(); 
 
   useEffect(() => {
     const fetchDownloadCount = async () => {
@@ -38,13 +38,16 @@ export function Section() {
         const data = await response.json();
         setDownloadCount(data.downloads);
       } catch (error) {
-        console.error("Error fetching download count", error);
+        console.error("حدث خطأ أثناء جلب عدد التنزيلات", error);
       }
     };
     fetchDownloadCount();
   }, []);
 
-  const openModal = () => {
+
+
+
+  const openModel = () => {
     if (!name) {
       toast.error(t("error_enter_name"));
       return;
@@ -57,71 +60,38 @@ export function Section() {
       toast.error(t("error_enter_name"));
       return;
     }
-
     const canvas = document.createElement("canvas");
-    // Use window.Image to avoid TypeScript error
     const img = new window.Image();
-    img.crossOrigin = "anonymous";
     img.src = card.src;
-
     img.onload = async () => {
-      try {
-        const context = canvas.getContext("2d");
-        if (!context) {
-          toast.error(t("error_download"));
-          return;
-        }
+      const context = canvas.getContext("2d");
+      if (!context) return;
+      canvas.width = img.width;
+      canvas.height = img.height;
+      const fontSize = Math.round(canvas.width * 0.03);
+      const textY = canvas.height - (canvas.height * 0.15);
 
-        // Use natural dimensions for better accuracy
-        canvas.width = img.naturalWidth;
-        canvas.height = img.naturalHeight;
-        context.drawImage(img, 0, 0, canvas.width, canvas.height);
-
-        // Text configuration
-        const fontSize = Math.round(canvas.width * 0.03);
-        const textY = canvas.height - canvas.height * 0.15;
-        context.font = `bold ${fontSize}px Arial`;
-        context.fillStyle = "white";
-        context.textAlign = "center";
-        context.textBaseline = "middle";
-        context.fillText(name, canvas.width / 2, textY);
-
-        // Create download link and trigger download (iOS compatible)
-        const link = document.createElement("a");
-        canvas.toBlob((blob) => {
-          if (!blob) {
-            toast.error(t("error_download"));
-            return;
-          }
-          const url = URL.createObjectURL(blob);
-          link.download = "masdar.jpg"; // using .jpg extension
-          link.href = url;
-          document.body.appendChild(link);
-          link.click();
-          document.body.removeChild(link);
-          URL.revokeObjectURL(url);
-          toast.success(t("success_download"));
-        }, "image/jpeg", 0.9);
-
-        // Update download count
-        await fetch("/api/downloads", { method: "POST" });
-        setDownloadCount((prev) => (prev ? prev + 1 : 1));
-        router.refresh();
-      } catch (error) {
-        console.error("Download failed:", error);
-        toast.error(t("error_download"));
-      }
-    };
-
-    img.onerror = () => {
-      toast.error("Error loading image");
+      context.drawImage(img, 0, 0);
+      context.font = `bold  ${fontSize}px Arial`;
+      context.fillStyle = "white";
+      context.textAlign = "center";
+      context.fillText(name, canvas.width / 2 , textY);
+      const link = document.createElement("a");
+      link.download = "masdar.png";
+      link.href = canvas.toDataURL();
+      link.click();
+      toast.success(t("success_download"));
+      await fetch("/api/downloads", { method: "POST" });
+      setDownloadCount((prev) => (prev ? prev + 1 : 1));
+      router.refresh();
     };
   };
 
-
   return (
-    <div className="text-center mt-4 space-y-8 p-[20px]">
-      <div>
+    <div className="text-center  mt-4 space-y-8 p-[20px] ">
+
+      <div >
+
         <motion.p
           initial={{ opacity: 0, y: -70 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -137,9 +107,7 @@ export function Section() {
           className="w-fit mx-auto text-gray-900"
           onChange={(e) => setName(e.target.value)}
           placeholder={t("enter_name")}
-          startContent={
-            <FaRegUser className="text-2xl text-gray-900 dark:text-white pointer-events-none flex-shrink-0" />
-          }
+          startContent={<FaRegUser className="text-2xl text-gray-900 dark:text-white pointer-events-none flex-shrink-0" />}
           type="text"
         />
       </div>
@@ -152,12 +120,11 @@ export function Section() {
       >
         {t("step3")}
       </motion.p>
-
       <div className="flex justify-center gap-16 items-center mb-16">
         <Button
           color="primary"
           variant="ghost"
-          onPress={openModal}
+          onPress={openModel}
           endContent={<BiSolidShow className="text-[20px]" />}
         >
           {t("view_image")}
@@ -171,8 +138,7 @@ export function Section() {
           {t("download_image")}
         </Button>
       </div>
-
-      <div className="flex items-center justify-center gap-2">
+      <div className="flex items-center justify-center gap-2 ">
         <CiCreditCard1 size={24} />
         <motion.p
           initial={{ opacity: 0, x: -100 }}
@@ -180,7 +146,7 @@ export function Section() {
           transition={{ duration: 1.5 }}
           className="text-[20px]"
         >
-          {t("card")}
+           {t("card")} 
           {downloadCount === undefined ? (
             <Spinner size="sm" />
           ) : (
@@ -194,28 +160,33 @@ export function Section() {
           {(onClose) => (
             <>
               <ModalHeader>{t("modal_title")}</ModalHeader>
-              <ModalBody>
-                <div className="relative">
-                  <div>
+              <ModalBody >
+                  <div className="relative ">
+                    <div className="">
                     <Image
                       src={card}
                       alt="Selected Image"
                       width={300}
                       height={300}
-                      className="w-full"
+                      className="w-full "
                     />
+                    </div>
+   
+                    <div
+                      className=" absolute left-1/2 transform -translate-x-[50%] bottom-[15%]  text-white  text-[15px]"
+               
+                    >
+                      {name}
+                    </div>
                   </div>
-                  <div className="absolute left-1/2 transform -translate-x-[50%] bottom-[15%] text-white text-[15px]">
-                    {name}
-                  </div>
-                </div>
+              
               </ModalBody>
               <ModalFooter>
                 <Button color="danger" variant="light" onPress={onClose}>
                   {t("close")}
                 </Button>
                 <Button
-                  color="primary"
+                   color="primary"
                   onPress={onClose}
                   onClick={handleDownload}
                   endContent={<FaDownload />}
