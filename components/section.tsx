@@ -59,7 +59,8 @@ export function Section() {
     }
 
     const canvas = document.createElement("canvas");
-    const img = new Image();
+    // Use window.Image to avoid TypeScript error
+    const img = new window.Image();
     img.crossOrigin = "anonymous";
     img.src = card.src;
 
@@ -74,47 +75,38 @@ export function Section() {
         // Use natural dimensions for better accuracy
         canvas.width = img.naturalWidth;
         canvas.height = img.naturalHeight;
-
-        // Draw image with explicit dimensions
         context.drawImage(img, 0, 0, canvas.width, canvas.height);
 
         // Text configuration
         const fontSize = Math.round(canvas.width * 0.03);
-        const textY = canvas.height - (canvas.height * 0.15);
-        
+        const textY = canvas.height - canvas.height * 0.15;
         context.font = `bold ${fontSize}px Arial`;
         context.fillStyle = "white";
         context.textAlign = "center";
         context.textBaseline = "middle";
         context.fillText(name, canvas.width / 2, textY);
 
-        // Create download link
+        // Create download link and trigger download (iOS compatible)
         const link = document.createElement("a");
         canvas.toBlob((blob) => {
           if (!blob) {
             toast.error(t("error_download"));
             return;
           }
-
-          // iOS compatible download method
           const url = URL.createObjectURL(blob);
-          link.download = "masdar.jpg"; // Use .jpg extension
+          link.download = "masdar.jpg"; // using .jpg extension
           link.href = url;
-          
-          // Required for iOS Safari
           document.body.appendChild(link);
           link.click();
           document.body.removeChild(link);
           URL.revokeObjectURL(url);
-
           toast.success(t("success_download"));
-        }, "image/jpeg", 0.9); // Use JPEG with quality setting
+        }, "image/jpeg", 0.9);
 
         // Update download count
         await fetch("/api/downloads", { method: "POST" });
         setDownloadCount((prev) => (prev ? prev + 1 : 1));
         router.refresh();
-
       } catch (error) {
         console.error("Download failed:", error);
         toast.error(t("error_download"));
