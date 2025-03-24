@@ -22,6 +22,7 @@ import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { useTheme } from "next-themes";
 import card from "../public/images/card.jpg";
+import { saveAs } from "file-saver"; // install via npm install file-saver
 
 export function Section() {
   const t = useTranslations("section");
@@ -29,7 +30,7 @@ export function Section() {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const [downloadCount, setDownloadCount] = useState<number>();
   const router = useRouter();
-  const { theme } = useTheme(); 
+  const { theme } = useTheme();
 
   useEffect(() => {
     const fetchDownloadCount = async () => {
@@ -44,10 +45,7 @@ export function Section() {
     fetchDownloadCount();
   }, []);
 
-
-
-
-  const openModel = () => {
+  const openModal = () => {
     if (!name) {
       toast.error(t("error_enter_name"));
       return;
@@ -60,38 +58,55 @@ export function Section() {
       toast.error(t("error_enter_name"));
       return;
     }
+
+    // Create a canvas to re-render the image (which converts it to a baseline JPEG)
     const canvas = document.createElement("canvas");
     const img = new window.Image();
+    img.crossOrigin = "anonymous"; // ensure CORS handling if needed
     img.src = card.src;
+
     img.onload = async () => {
       const context = canvas.getContext("2d");
       if (!context) return;
+
       canvas.width = img.width;
       canvas.height = img.height;
-      const fontSize = Math.round(canvas.width * 0.03);
-      const textY = canvas.height - (canvas.height * 0.15);
 
+      // Calculate font size and position
+      const fontSize = Math.round(canvas.width * 0.03);
+      const textY = canvas.height - canvas.height * 0.15;
+
+      // Draw the image and overlay the name text
       context.drawImage(img, 0, 0);
-      context.font = `bold  ${fontSize}px Arial`;
+      context.font = `bold ${fontSize}px Arial`;
       context.fillStyle = "white";
       context.textAlign = "center";
-      context.fillText(name, canvas.width / 2 , textY);
-      const link = document.createElement("a");
-      link.download = "masdar.png";
-      link.href = canvas.toDataURL();
-      link.click();
-      toast.success(t("success_download"));
+      context.fillText(name, canvas.width / 2, textY);
+
+      // Convert the canvas drawing into a Blob and download using FileSaver
+      canvas.toBlob((blob) => {
+        if (!blob) {
+          toast.error(t("error_download"));
+          return;
+        }
+        saveAs(blob, "masdar.png");
+        toast.success(t("success_download"));
+      }, "image/png");
+
+      // Update download count on the server
       await fetch("/api/downloads", { method: "POST" });
       setDownloadCount((prev) => (prev ? prev + 1 : 1));
       router.refresh();
     };
+
+    img.onerror = () => {
+      toast.error("Error loading image.");
+    };
   };
 
   return (
-    <div className="text-center  mt-4 space-y-8 p-[20px] ">
-
-      <div >
-
+    <div className="text-center mt-4 space-y-8 p-[20px]">
+      <div>
         <motion.p
           initial={{ opacity: 0, y: -70 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -107,7 +122,9 @@ export function Section() {
           className="w-fit mx-auto text-gray-900"
           onChange={(e) => setName(e.target.value)}
           placeholder={t("enter_name")}
-          startContent={<FaRegUser className="text-2xl text-gray-900 dark:text-white pointer-events-none flex-shrink-0" />}
+          startContent={
+            <FaRegUser className="text-2xl text-gray-900 dark:text-white pointer-events-none flex-shrink-0" />
+          }
           type="text"
         />
       </div>
@@ -120,11 +137,12 @@ export function Section() {
       >
         {t("step3")}
       </motion.p>
+
       <div className="flex justify-center gap-16 items-center mb-16">
         <Button
           color="primary"
           variant="ghost"
-          onPress={openModel}
+          onPress={openModal}
           endContent={<BiSolidShow className="text-[20px]" />}
         >
           {t("view_image")}
@@ -138,7 +156,8 @@ export function Section() {
           {t("download_image")}
         </Button>
       </div>
-      <div className="flex items-center justify-center gap-2 ">
+
+      <div className="flex items-center justify-center gap-2">
         <CiCreditCard1 size={24} />
         <motion.p
           initial={{ opacity: 0, x: -100 }}
@@ -146,7 +165,7 @@ export function Section() {
           transition={{ duration: 1.5 }}
           className="text-[20px]"
         >
-           {t("card")} 
+          {t("card")}
           {downloadCount === undefined ? (
             <Spinner size="sm" />
           ) : (
@@ -160,33 +179,28 @@ export function Section() {
           {(onClose) => (
             <>
               <ModalHeader>{t("modal_title")}</ModalHeader>
-              <ModalBody >
-                  <div className="relative ">
-                    <div className="">
+              <ModalBody>
+                <div className="relative">
+                  <div>
                     <Image
                       src={card}
                       alt="Selected Image"
                       width={300}
                       height={300}
-                      className="w-full "
+                      className="w-full"
                     />
-                    </div>
-   
-                    <div
-                      className=" absolute left-1/2 transform -translate-x-[50%] bottom-[15%]  text-white  text-[15px]"
-               
-                    >
-                      {name}
-                    </div>
                   </div>
-              
+                  <div className="absolute left-1/2 transform -translate-x-[50%] bottom-[15%] text-white text-[15px]">
+                    {name}
+                  </div>
+                </div>
               </ModalBody>
               <ModalFooter>
                 <Button color="danger" variant="light" onPress={onClose}>
                   {t("close")}
                 </Button>
                 <Button
-                   color="primary"
+                  color="primary"
                   onPress={onClose}
                   onClick={handleDownload}
                   endContent={<FaDownload />}
