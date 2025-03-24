@@ -22,7 +22,6 @@ import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { useTheme } from "next-themes";
 import card from "../public/images/card.jpg";
-import { saveAs } from "file-saver"; // install via npm install file-saver
 
 export function Section() {
   const t = useTranslations("section");
@@ -39,7 +38,7 @@ export function Section() {
         const data = await response.json();
         setDownloadCount(data.downloads);
       } catch (error) {
-        console.error("حدث خطأ أثناء جلب عدد التنزيلات", error);
+        console.error("Error fetching download count", error);
       }
     };
     fetchDownloadCount();
@@ -59,50 +58,74 @@ export function Section() {
       return;
     }
 
-    // Create a canvas to re-render the image (which converts it to a baseline JPEG)
     const canvas = document.createElement("canvas");
-    const img = new window.Image();
-    img.crossOrigin = "anonymous"; // ensure CORS handling if needed
+    const img = new Image();
+    img.crossOrigin = "anonymous";
     img.src = card.src;
 
     img.onload = async () => {
-      const context = canvas.getContext("2d");
-      if (!context) return;
-
-      canvas.width = img.width;
-      canvas.height = img.height;
-
-      // Calculate font size and position
-      const fontSize = Math.round(canvas.width * 0.03);
-      const textY = canvas.height - canvas.height * 0.15;
-
-      // Draw the image and overlay the name text
-      context.drawImage(img, 0, 0);
-      context.font = `bold ${fontSize}px Arial`;
-      context.fillStyle = "white";
-      context.textAlign = "center";
-      context.fillText(name, canvas.width / 2, textY);
-
-      // Convert the canvas drawing into a Blob and download using FileSaver
-      canvas.toBlob((blob) => {
-        if (!blob) {
+      try {
+        const context = canvas.getContext("2d");
+        if (!context) {
           toast.error(t("error_download"));
           return;
         }
-        saveAs(blob, "masdar.png");
-        toast.success(t("success_download"));
-      }, "image/png");
 
-      // Update download count on the server
-      await fetch("/api/downloads", { method: "POST" });
-      setDownloadCount((prev) => (prev ? prev + 1 : 1));
-      router.refresh();
+        // Use natural dimensions for better accuracy
+        canvas.width = img.naturalWidth;
+        canvas.height = img.naturalHeight;
+
+        // Draw image with explicit dimensions
+        context.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+        // Text configuration
+        const fontSize = Math.round(canvas.width * 0.03);
+        const textY = canvas.height - (canvas.height * 0.15);
+        
+        context.font = `bold ${fontSize}px Arial`;
+        context.fillStyle = "white";
+        context.textAlign = "center";
+        context.textBaseline = "middle";
+        context.fillText(name, canvas.width / 2, textY);
+
+        // Create download link
+        const link = document.createElement("a");
+        canvas.toBlob((blob) => {
+          if (!blob) {
+            toast.error(t("error_download"));
+            return;
+          }
+
+          // iOS compatible download method
+          const url = URL.createObjectURL(blob);
+          link.download = "masdar.jpg"; // Use .jpg extension
+          link.href = url;
+          
+          // Required for iOS Safari
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+          URL.revokeObjectURL(url);
+
+          toast.success(t("success_download"));
+        }, "image/jpeg", 0.9); // Use JPEG with quality setting
+
+        // Update download count
+        await fetch("/api/downloads", { method: "POST" });
+        setDownloadCount((prev) => (prev ? prev + 1 : 1));
+        router.refresh();
+
+      } catch (error) {
+        console.error("Download failed:", error);
+        toast.error(t("error_download"));
+      }
     };
 
     img.onerror = () => {
-      toast.error("Error loading image.");
+      toast.error("Error loading image");
     };
   };
+
 
   return (
     <div className="text-center mt-4 space-y-8 p-[20px]">
