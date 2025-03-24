@@ -10,6 +10,7 @@ import {
   ModalBody,
   ModalFooter,
   useDisclosure,
+  Spinner
 } from "@heroui/react";
 import Image from "next/image";
 import { FaRegUser, FaDownload } from "react-icons/fa";
@@ -145,7 +146,12 @@ export function Section() {
           transition={{ duration: 1.5 }}
           className="text-[20px]"
         >
-          {t("card")} {downloadCount}
+           {t("card")} 
+          {downloadCount === undefined ? (
+            <Spinner size="sm" />
+          ) : (
+            downloadCount
+          )}
         </motion.p>
       </div>
 
