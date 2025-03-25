@@ -68,16 +68,13 @@ export function Section() {
       if (!context) return;
       canvas.width = img.width;
       canvas.height = img.height;
-      const fontSize = Math.round(canvas.width * 0.03);
-      const textY = canvas.height - (canvas.height * 0.15);
-
       context.drawImage(img, 0, 0);
-      context.font = `bold  ${fontSize}px Arial`;
+      context.font = "bold 40px Arial";
       context.fillStyle = "white";
       context.textAlign = "center";
-      context.fillText(name, canvas.width / 2 , textY);
+      context.fillText(name, canvas.width / 2, canvas.height - 250);
       const link = document.createElement("a");
-      link.download = "masdar.png";
+      link.download = "eid-mubarak.png";
       link.href = canvas.toDataURL();
       link.click();
       toast.success(t("success_download"));
