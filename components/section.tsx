@@ -69,7 +69,7 @@ export function Section() {
       canvas.width = img.width;
       canvas.height = img.height;
       context.drawImage(img, 0, 0);
-      context.font = "bold 40px Arial";
+      context.font = "bold 60px Arial";
       context.fillStyle = "white";
       context.textAlign = "center";
       context.fillText(name, canvas.width / 2, canvas.height - 250);
